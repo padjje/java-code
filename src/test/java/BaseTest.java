@@ -6,23 +6,21 @@ import org.junit.jupiter.api.BeforeEach;
 
 abstract public class BaseTest {
 
-    public void setUp(){
+    public void setUp() {
         WebDriverManager.chromedriver().setup();
         Configuration.browser = "chrome";
         Configuration.driverManagerEnabled = true;
-        Configuration.browserSize = "1920x1080";
+        Configuration.startMaximized = true;
         Configuration.headless = false;
     }
 
-
     @BeforeEach
-    public void init(){
+    public void init() {
         setUp();
     }
 
-
     @AfterEach
-    public void tearDown(){
+    public void tearDown() {
         Selenide.closeWebDriver();
     }
 }
