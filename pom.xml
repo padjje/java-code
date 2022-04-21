@@ -13,6 +13,12 @@
             <version>3.141.5</version>
         </dependency>
         <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.22.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>com.typesafe</groupId>
             <artifactId>config</artifactId>
             <version>1.4.1</version>
@@ -54,6 +60,12 @@
             <artifactId>allure-junit5</artifactId>
             <version>2.13.1</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.22.0</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
     <build>
