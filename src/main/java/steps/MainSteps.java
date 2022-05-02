@@ -1,9 +1,8 @@
 package steps;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import pages.MainPage;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class MainSteps {
     private final MainPage mainPage = new MainPage();
@@ -17,8 +16,8 @@ public class MainSteps {
         mainPage.getLoginButton().click();
     }
 
-    public void assertLoginPageIsOpen() {
-        boolean actualResult = mainPage.getSocialButtonWrapper().isDisplayed();
-        assertThat(actualResult).as("Login page isn't open.").isTrue();
+    public void assertUserMenuIsDisplayed(){
+        mainPage.getUserMenuDropDown().as("User menu dropDown is not displayed").shouldBe(Condition.appear);
     }
+
 }
