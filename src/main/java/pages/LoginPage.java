@@ -10,6 +10,7 @@ public class LoginPage {
     private final SelenideElement passwordInput = $x("//input[@name='password']");
     private final SelenideElement emailInput = $x("//input[@name='email']");
     private final SelenideElement loginButton = $x("//button[@data-categ='logInPage'][@type='submit']");
+    private final SelenideElement errorMessage = $x("//div[contains(@class,'errorMessage')]");
 
     public SelenideElement getEmailInput() {
         return emailInput;
@@ -25,5 +26,8 @@ public class LoginPage {
 
     public SelenideElement getSocialButtonWrapper() {
         return socialButtonWrapper;
+    }
+    public  SelenideElement getErrorMessage(){
+        return errorMessage;
     }
 }

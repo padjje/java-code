@@ -24,4 +24,10 @@ public class LoginSteps {
         boolean actualResult = loginPage.getSocialButtonWrapper().isDisplayed();
         assertThat(actualResult).as("Login page isn't open.").isTrue();
     }
+
+    public void assertErrorMessageIsDisplayed() {
+        boolean actualResult = loginPage.getErrorMessage().isDisplayed();
+        assertThat(actualResult).as("Login error message is not displayed").isTrue();
+    }
+
 }
