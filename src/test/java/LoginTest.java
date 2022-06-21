@@ -36,4 +36,13 @@ public class LoginTest extends BaseTest {
         loginPage.assertErrorMessageIsDisplayed();
     }
 
+    @Test
+    public void verifyUserLoginWhenInvalidPassword() {
+        mainPage.openMainPage();
+        mainPage.clickOnLoginButton();
+        loginPage.enterEmail("demipot197@svcache.com");
+        loginPage.enterPassword("asdawfawufa");
+        loginPage.clickLoginButton();
+        loginPage.assertErrorMessageIsDisplayed();
+    }
 }
