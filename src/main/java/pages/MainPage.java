@@ -5,7 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.$x;
 
 
-public class MainPage {
+public class MainPage extends BasePage{
 
     private final SelenideElement loginButton = $x("//a[@data-value='signIn']");
     private final SelenideElement socialButtonWrapper = $x("//div[contains(@class,'socialButtons')]");

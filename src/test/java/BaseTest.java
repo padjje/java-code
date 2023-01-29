@@ -1,27 +1,18 @@
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 
-abstract public class BaseTest {
 
-    public void setUp() {
-        WebDriverManager.chromedriver().setup();
-        Configuration.browser = "chrome";
-        Configuration.driverManagerEnabled = true;
-        Configuration.startMaximized = true;
-        Configuration.headless = false;
+abstract public class BaseTest extends Base {
+
+    @BeforeAll
+    static void beforeAll() {
+        setUpWebDriver();
+        setupAllureListener();
     }
 
-    @BeforeEach
-    public void init() {
-        setUp();
-    }
-
-    @AfterEach
-    public void tearDown() {
-        Selenide.closeWebDriver();
+    @AfterAll
+    public static void afterAll() {
+        tearDown();
     }
 }
 

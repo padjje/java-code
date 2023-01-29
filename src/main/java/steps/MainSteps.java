@@ -1,24 +1,27 @@
 package steps;
 
-import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.Condition;
+import io.qameta.allure.Step;
 import pages.MainPage;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static com.codeborne.selenide.Selenide.open;
 
-public class MainSteps {
+public class MainSteps extends BaseSteps {
     private final MainPage mainPage = new MainPage();
-    private final String baseUrl = "https://create.vista.com/uk/";
 
+    @Step
     public void openMainPage() {
-        Selenide.open(baseUrl);
+        String baseUrl = "https://create.vista.com/uk/";
+        open(baseUrl);
     }
 
+    @Step
     public void clickOnLoginButton() {
-        mainPage.getLoginButton().click();
+        mainPage.getLoginButton().as("Login button on Main page").shouldBe(Condition.enabled).click();
     }
 
+    @Step
     public void assertLoginPageIsOpen() {
-        boolean actualResult = mainPage.getSocialButtonWrapper().isDisplayed();
-        assertThat(actualResult).as("Login page isn't open.").isTrue();
+        mainPage.getSocialButtonWrapper().shouldBe(Condition.visible);
     }
 }
